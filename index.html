@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>c:\</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
+
+    body{
+      background:url('bg.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:white;
+    }
+
+    header{
+      backdrop-filter: blur(6px);
+      background:rgba(0,0,0,0.4);
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    h1{
+      font-size:28px;
+      letter-spacing:2px;
+    }
+
+    #clock{
+      font-size:18px;
+      opacity:0.9;
+    }
+
+    main{
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+    }
+
+    .post{
+      background:rgba(0,0,0,0.55);
+      padding:25px;
+      margin-bottom:25px;
+      border-radius:10px;
+    }
+
+    .post h2{
+      margin-bottom:10px;
+    }
+
+    .date{
+      font-size:14px;
+      opacity:0.7;
+      margin-bottom:10px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hello,こんにちは</h1>
+  <div id="clock"></div>
+</header>
+
+<main>
+
+  <article class="post">
+    <h2>また最初から</h2>
+    <div class="date">2026/03/09</div>
+    <p>
+      前回のブログはNetlifyで作りましたが、通信が遅いためGithubに移行しました、今度はちゃんと更新します。
+    </p>
+  </article>
+
+</main>
+
+<script>
+function updateClock(){
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth()+1).padStart(2,'0');
+  const d = String(now.getDate()).padStart(2,'0');
+  const h = String(now.getHours()).padStart(2,'0');
+  const mi = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+
+  document.getElementById('clock').textContent = `${y}/${m}/${d} ${h}:${mi}:${s}`;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
